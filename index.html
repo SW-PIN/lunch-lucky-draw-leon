@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,15 @@
     <meta name="description" content="不知道午餐吃什麼？使用這個酷炫的隨機抽籤小工具，幫你快速做決定！">
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <div class="container">
         <h1>LUNCH DRAW</h1>
-        
+
+        <div class="user-group">
+            <input type="text" id="userNameInput" placeholder="輸入你的姓名 (選填)" aria-label="使用者姓名">
+        </div>
+
         <div class="input-group">
             <input type="text" id="lunchInput" placeholder="想吃什麼？(例如：牛肉麵)" aria-label="新增午餐選項">
             <button class="add-btn" id="addBtn">新增</button>
@@ -36,4 +42,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

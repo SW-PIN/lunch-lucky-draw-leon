@@ -58,6 +58,16 @@ h1 {
     filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
+.user-group {
+    margin-bottom: 1rem;
+}
+
+.user-group input {
+    width: 100%;
+    text-align: center;
+    border-color: var(--secondary-glow);
+}
+
 .input-group {
     display: flex;
     gap: 0.5rem;

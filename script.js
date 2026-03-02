@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初始預設選項
     let lunches = ['牛肉麵', '吉野家', '麥當勞', '八方雲集', '健康便當', '壽司郎'];
 
+    // 隨機名稱列表 (動物)
+    const animalNames = [
+        '小胖企鵝', '傲嬌橘貓', '害羞水豚', '熱情柴犬', '冷靜貓頭鷹',
+        '活潑小兔子', '大胃王貓熊', '優雅長頸鹿', '聰明小狐狸', '呆萌小浣熊'
+    ];
+
     // 渲染列表
     function renderList() {
         lunchList.innerHTML = '';
@@ -54,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const userNameInput = document.getElementById('userNameInput');
+        const enteredName = userNameInput.value.trim();
+        const fallbackName = animalNames[Math.floor(Math.random() * animalNames.length)];
+        const finalName = enteredName || fallbackName;
+
         // 開始動畫效果
         spinBtn.disabled = true;
         spinBtn.classList.add('spinning');
@@ -65,18 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const randomPick = lunches[Math.floor(Math.random() * lunches.length)];
             spinBtn.textContent = randomPick;
             count++;
-            
+
             if (count > 20) {
                 clearInterval(interval);
                 const finalPick = lunches[Math.floor(Math.random() * lunches.length)];
-                
+
                 setTimeout(() => {
                     spinBtn.classList.remove('spinning');
                     spinBtn.disabled = false;
                     spinBtn.textContent = '點擊抽籤';
-                    
+
                     // 顯示結果
-                    resultLabel.textContent = finalPick;
+                    resultLabel.innerHTML = `<span style="font-size: 1.2rem; color: var(--secondary);">恭喜 ${finalName}！</span><br>今天首選：${finalPick}`;
                     resultOverlay.style.display = 'flex';
                 }, 500);
             }
